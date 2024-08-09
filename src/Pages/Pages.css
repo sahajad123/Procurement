@@ -1,0 +1,720 @@
+/* Main */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.main-container {
+  display: flex;
+  height: 100vh;
+  /* Full height of the viewport */
+}
+
+.sidebar {
+  width: 260px;
+  /* Fixed width for the sidebar */
+  background-color: #333;
+  /* Sidebar background color */
+  color: white;
+}
+
+.content {
+  flex: 1;
+  /* Take up the remaining space */
+  display: flex;
+  flex-direction: column;
+  /* Stack Navbar and main content vertically */
+}
+
+.navbar {
+  width: 100%;
+  /* Full width of the remaining space */
+  background-color: #333;
+  /* Navbar background color */
+  color: white;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+.main-content {
+  padding: 20px;
+  flex: 1;
+  /* Ensure main content takes up remaining space below the navbar */
+  overflow: auto;
+  /* Allow scrolling if content overflows */
+}
+
+
+/* Side bar */
+.app {
+  display: flex;
+}
+
+.content {
+  flex-grow: 1;
+  /* padding: 20px; */
+}
+
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background-color: #FFFFFF;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  /* padding: 20px; */
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.logo {
+
+  font-size: 24px;
+  margin: 54px 22.18px 77px 22px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+
+  cursor: pointer;
+  display: flex;
+  color: #000;
+  height: 50px;
+  align-items: center;
+}
+
+.label-color {
+  color: #000;
+}
+
+nav ul li:hover {
+  text-decoration: none;
+  background: var(--Linear, linear-gradient(135deg, #75C043 0%, #64B730 100%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.icon1 {
+  color: #000;
+  display: flex;
+  width: 24px;
+  height: 24px;
+  padding: 2px 2.73px 1.497px 3px;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../assets/Group\ 5.svg');
+  background-repeat: no-repeat;
+  text-align: left;
+}
+
+.icon2 {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  padding: 2px 2.73px 1.497px 3px;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../assets/Notifications.svg');
+  background-repeat: no-repeat;
+  text-align: left;
+}
+
+.rect {
+  margin-right: 20px;
+}
+
+nav ul li:hover .rect {
+  width: 6px;
+  height: 50px;
+  border-radius: 0px 5px 5px 0px;
+  background: var(--Linear, linear-gradient(135deg, #75C043 0%, #64B730 100%));
+}
+
+/* Narbar */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  /* Vertically center the content */
+  justify-content: space-between;
+  /* Space between Page-detail and user-info */
+  width: 100%;
+  /* Full width of the remaining space */
+  background-color: #fff;
+  /* Navbar background color */
+  color: #000;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  position: relative;
+  /* Ensure profile menu is positioned relative to navbar */
+}
+
+.Page-detail {
+  display: flex;
+  align-items: center;
+  /* Vertically center the text */
+}
+
+.Page-detail ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.Page-detail li {
+  display: flex;
+  align-items: center;
+  color: #000;
+}
+
+.Page-detail .icon1 {
+  /* Add styles for your icon1 if needed */
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  /* Vertically center the user info */
+  position: relative;
+  /* Ensure profile menu is positioned relative to this container */
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  /* Vertically center the user info */
+  cursor: pointer;
+  position: relative;
+  /* Ensure profile menu positions relative to user-info */
+}
+
+.user-image {
+  border-radius: 50%;
+  /* Circular user image */
+  margin-right: 10px;
+}
+
+.user-name {
+  margin-right: 10px;
+  color: var(--Grey-100, #121212);
+
+  /* Body / 2 - Normal */
+  font-family: Nunito;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  /* 171.429% */
+}
+
+.profile-menu {
+  display: none;
+  /* Hidden by default */
+  position: absolute;
+  right: 0;
+  /* Align to the right edge of the user-info */
+  top: 100%;
+  /* Position below the user-info */
+  background-color: white;
+  color: black;
+  border: 1px solid #ddd;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  /* Ensure menu is above other content */
+  min-width: 150px;
+  /* Optional: Set a minimum width for the dropdown */
+}
+
+.profile-menu.open {
+  display: block;
+  /* Show menu when open */
+}
+
+.profile-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-menu li {
+  padding: 10px;
+}
+
+.profile-menu li a {
+  text-decoration: none;
+  color: black;
+}
+
+.profile-menu li:hover {
+  background-color: #f0f0f0;
+  /* Highlight menu item on hover */
+}
+
+.Nav {
+  font-family: Nunito;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+
+.Nav-detail {
+  color: var(--Grey-90, #262626);
+  /* Body / 3 - Small */
+  font-family: Nunito;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  /* 166.667% */
+}
+
+.menuItems {
+  display: flex;
+  align-items: center;
+  /* Vertically center text and icon */
+  width: 100%;
+  height: 24px;
+  /* Set height to align with icons */
+}
+
+.menu-icon1,
+.menu-icon2,
+.menu-icon3 {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  /* Space between icon and text */
+  background-size: contain;
+  /* Ensure icon scales correctly */
+  background-repeat: no-repeat;
+  background-position: center;
+  /* Center the icon */
+}
+
+.menu-icon1 {
+  background-image: url('../assets/Profile.svg');
+}
+
+.menu-icon2 {
+  background-image: url('../assets/Setting.svg');
+}
+
+.menu-icon3 {
+  background-image: url('../assets/Logout.svg');
+}
+
+.profile-menu li:hover {
+  background-color: #f0f0f0;
+  /* Highlight menu item on hover */
+}
+
+/* /Procurement */
+
+/* .procurements-container {
+  display: flex;
+  height: 100vh;
+  font-family: sans-serif;
+} */
+
+/* .procurements-sidebar {
+  display: flex;
+  width: 16rem;
+  border-right: 1px solid #e5e7eb;
+}
+
+.sidebar-logo {
+  margin: 2rem;
+} */
+
+.procurements-main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* .procurements-header {
+  position: fixed;
+  background-color: white;
+  padding: 1rem;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+} */
+
+/* .header-logo {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+} */
+
+/* .header-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.header-description {
+  color: #121212;
+} */
+
+.procurements-content-area {
+  padding: 24px;
+  flex: 1;
+  background-color: #f9fafb;
+  /* Adjust color as needed */
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  /* space-x: 0.5rem; */
+  cursor: pointer;
+  color: #4b5563;
+  /* Adjust color as needed */
+}
+
+.back-button-text {
+  display: flex;
+  align-items: center;
+  font-family: Nunito, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  border: none;
+  background: linear-gradient(135deg, #75C043 0%, #64B730 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+
+.back-button-text svg {
+  margin-right: 8px;
+  /* Space between SVG icon and text */
+  stroke-width: 1.5;
+}
+
+.back-button-text:hover {
+  /* Optional: add a hover effect if needed */
+  opacity: 0.8;
+}
+
+
+.procurements-section {
+  background-color: white;
+  /* margin-top: 3rem;
+  margin-bottom: 0.75rem; */
+  width: 100%;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+}
+
+.section-title {
+  color: var(--Relia-Energy-Black, #272525);
+  /* Heading / 4 */
+  font-family: Nunito;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+
+.field-group {
+  display: flex;
+  flex-wrap: wrap;
+  /* padding: 24px; */
+  gap: 20px;
+  width: 100%;
+  /* Add gap between field items */
+}
+
+.field-item {
+  flex: 1;
+  /* margin-bottom: 20px; */
+  /* gap: 20px; */
+  /* Gap between individual fields */
+}
+
+.field-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4b5563;
+  /* Adjust color as needed */
+}
+
+.field-input,
+.field-textarea {
+  width: 200.5px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid var(--Grey-40, #D0D0D0);
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.field-textarea {
+  resize: none;
+}
+
+.add-items-button,
+.submit-button {
+
+  display: flex;
+  width: 350px;
+  height: 46px;
+  padding: 10px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--Linear, linear-gradient(135deg, #75C043 0%, #64B730 100%));
+  color: #FFF;
+
+  /* Body / 2 - Normal */
+  font-family: Nunito;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  /* 171.429% */
+}
+.submit-button{
+  margin-bottom: 24px;
+}
+.add-items-button:hover {
+
+  background: linear-gradient(135deg, #5b9b27 0%, #4d9c21 100%);
+  /* Darker gradient for hover */
+
+}
+
+.submit-button:hover {
+
+  background: linear-gradient(135deg, #5b9b27 0%, #4d9c21 100%);
+  /* Darker gradient for hover */
+
+}
+
+.remove-item-button {
+  display: flex;
+  width: 50px;
+  height: 30px;
+  padding: 10px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--Linear, linear-gradient(135deg, #FF4C4C 0%, #D83D3D 100%));
+
+  color: #FFF;
+
+  /* Body / 2 - Normal */
+  font-family: Nunito;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  /* line-height: 24px; */
+}
+.field-item-btn{
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.submit-section {
+  margin: 1rem 1.25rem;
+  margin-bottom: 24px;
+}
+
+.star {
+  color: #ED3237;
+  /* Heading / 4 */
+  font-family: Nunito;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+
+.optional {
+  color: var(--Relia-Energy-Black, #272525);
+  font-family: Nunito;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.Requisition-form{
+  width: 100%;
+}
+
+/* UserData.js */
+
+.procurement-table {
+  margin: 20px;
+}
+
+.procurement-button {
+  display: flex;
+  width: 250px;
+  height: 46px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 10px;
+  background: var(--Linear, linear-gradient(135deg, #75C043 0%, #64B730 100%));
+}
+
+.procurement-button:hover {
+  background-color: darkgreen;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.pending {
+  color: orange;
+}
+
+.approved {
+  color: green;
+}
+
+.rejected {
+  color: red;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  height: 100px;
+  background-color: #f9f9f9;
+}
+
+.label {
+  margin: 37px 0px 24px;
+  color: #000;
+
+  /* Heading / 4 */
+  font-family: Nunito;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+
+.button {
+  width: 250px;
+  height: 46px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  flex-shrink: 0;
+  cursor: pointer;
+  border-radius: 10px;
+  background: var(--Linear, linear-gradient(135deg, #75C043 0%, #64B730 100%));
+}
+
+.button:hover {
+  background: linear-gradient(135deg, #5b9b27 0%, #4d9c21 100%);
+  /* Darker gradient for hover */
+}
+
+/* Generate Report */
+/* form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: auto;
+  background-color: #f9f9f9;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  grid-column: span 2;
+}
+
+button[type="button"] {
+  background-color: #28a745;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button[type="button"]:hover {
+  background-color: #218838;
+} */
