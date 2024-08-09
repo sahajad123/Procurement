@@ -1,52 +1,3 @@
-// import React, { useState } from 'react';
-// import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
-// import Sidebar from './Sidebar';
-// // import Navbar from './Navbar';
-// import Navbar from './Narbar';
-// import '../Pages/Pages.css';
-// import Procurements from './Procurements';
-// import UserRequests from './UserRequests';
-// import Profile from './Profile';
-// import Settings from './Settings'; // Import Settings component
-// import Logout from './Logout'; // Import Logout component
-// import GenerateReport from './GenerateReport';
-
-// const Main = () => {
-//   const [selectedItem, setSelectedItem] = useState('Procurements');
-
-//   const location = useLocation();
-//   const { email, username } = location.state || {};
-
-//   const handleSidebarSelect = (item) => {
-//     setSelectedItem(item);
-//   };
-
-//   const userDetails = { userName: username, userEmail: email };
-
-//   return (
-//     <div className="main-container">
-//       <Sidebar onSelect={handleSidebarSelect} />
-//       <div className="content">
-//         <Navbar selectedItem={selectedItem} {...userDetails} />
-//         <div className="main-content">
-//           <Routes>
-//           <Route path="/" element={<Procurements />} />
-//             <Route path="Procurements" element={<Procurements />} />
-//             <Route path="UserRequests" element={<UserRequests />} />
-//             <Route path="Profile" element={<Profile />} />
-//             <Route path="Settings" element={<Settings />} />
-//             <Route path="Logout" element={<Logout />} />
-//             <Route path="GenerateReport" element={<GenerateReport />} />
-//             {/* <Route path="*" element={<Navigate to="/Main/Procurements" />} /> */}
-//           </Routes>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Main;
-
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import axios from 'axios';
@@ -95,9 +46,9 @@ const Main = () => {
     return <div>Error: {error}</div>;
   }
 
-  if (!userDetails) {
-    return <div>Please login...</div>;
-  }
+  // if (!userDetails) {
+  //   return <div>Please login...</div>;
+  // }
  if(!userDetails){
   return (
     <div className="main-container">

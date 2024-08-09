@@ -1,185 +1,3 @@
-// import React, { useState } from 'react';
-// import '../Pages/Pages.css'; // Import the external CSS file
-
-// function Procurements() {
-//   const [items, setItems] = useState([{ item: '', quantity: '', unitPrice: '', totalPrice: '' }]);
-//   const [itemCount, setItemCount] = useState(0)
-
-//   const handleAddItem = () => {
-//     setItems([...items, { item: '', quantity: '', unitPrice: '', totalPrice: '' }]);
-//     setItemCount(itemCount+1)
-//   };
-
-//   const handleRemoveItem = (index) => {
-//     const newItems = items.filter((_, i) => i !== index);
-//     setItems(newItems);
-//     setItemCount(itemCount-1)
-//   };
-
-//   const handleChange = (index, event) => {
-//     const { name, value } = event.target;
-//     const newItems = items.map((item, i) => (i === index ? { ...item, [name]: value } : item));
-//     setItems(newItems);
-//   };
-
-//   return (
-//     <div>
-//       <div className="procurements-content-area">
-//         <div className="back-button">
-//           <button className="back-button-text">
-//             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-//               <path d="M15 4L7 12L15 20" stroke="url(#paint0_linear_64_844)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-//               <defs>
-//                 <linearGradient id="paint0_linear_64_844" x1="15" y1="4" x2="2.2" y2="10.4" gradientUnits="userSpaceOnUse">
-//                   <stop stopColor="#75C043" />
-//                   <stop offset="1" stopColor="#64B730" />
-//                 </linearGradient>
-//               </defs>
-//             </svg>
-//             Back
-//           </button>
-//         </div>
-//         <div className="procurements-section">
-//           <h1 className="section-title">Requisition Information<span className='star'>*</span></h1>
-//           <div className="field-group">
-//             <div className="field-item">
-//               <label className="field-label">Requisition Number</label>
-//               <input type="number" className="field-input" />
-//             </div>
-
-//             <div className="field-item" style={{ marginLeft: "20px" }}>
-//               <label className="field-label">Requisition Date</label>
-//               <input type="date" className="field-input" />
-//             </div>
-//           </div>
-
-//           <div className="field-group">
-//             <div className="field-item">
-//               <label className="field-label">Requested By</label>
-//               <input type="text" className="field-input" />
-//             </div>
-
-//             <div className="field-item" style={{ marginLeft: "20px" }}>
-//               <label className="field-label">Designation</label>
-//               <input type="text" className="field-input" />
-//             </div>
-
-//             <div className="field-item" style={{ marginLeft: "20px" }}>
-//               <label className="field-label">Department</label>
-//               <input type="text" className="field-input" />
-//             </div>
-//           </div>
-//         </div>
-
-//         <div className="procurements-section expenses-section">
-//           <h1 className="section-title">Expenses Information<span className='star'>*</span></h1>
-//           <div className="field-group">
-//             <div className="field-item">
-//               <label className="field-label">Expense Type</label>
-//               <input type="text" className="field-input" />
-//             </div>
-
-//             <div className="field-item" style={{ marginLeft: "20px" }}>
-//               <label className="field-label">Reason for Purchase</label>
-//               <textarea className="field-textarea" rows="15"></textarea>
-//             </div>
-//           </div>
-//         </div>
-
-//         <div className="procurements-section procurement-request">
-//           <h1 className="section-title">Procurement Request<span className='star'>*</span></h1>
-//           {items.map((item, index) => (
-//             <div key={index} className="field-group">
-//               <div className="field-item">
-//                 <label className="field-label">Item</label>
-//                 <input
-//                   type="text"
-//                   name="item"
-//                   value={item.item}
-//                   onChange={(e) => handleChange(index, e)}
-//                   className="field-input"
-//                 />
-//               </div>
-//               <div className="field-item" style={{ marginLeft: "20px" }}>
-//                 <label className="field-label">Quantity</label>
-//                 <input
-//                   type="number"
-//                   name="quantity"
-//                   value={item.quantity}
-//                   onChange={(e) => handleChange(index, e)}
-//                   className="field-input"
-//                 />
-//               </div>
-//               <div className="field-item" style={{ marginLeft: "20px" }}>
-//                 <label className="field-label">Unit Price</label>
-//                 <input
-//                   type="number"
-//                   name="unitPrice"
-//                   value={item.unitPrice}
-//                   onChange={(e) => handleChange(index, e)}
-//                   className="field-input"
-//                 />
-//               </div>
-//               <div className="field-item" style={{ marginLeft: "20px" }}>
-//                 <label className="field-label">Total Price</label>
-//                 <input
-//                   type="number"
-//                   name="totalPrice"
-//                   value={item.totalPrice}
-//                   onChange={(e) => handleChange(index, e)}
-//                   className="field-input"
-//                 />
-//               </div>
-//               {itemCount>0?<div className="field-item-btn" style={{ marginLeft: "20px" }}>
-//               <button onClick={() => handleRemoveItem(index)} className="remove-item-button">Remove</button>
-//               </div>:""}
-              
-//             </div>
-//           ))}
-          
-//           <div style={{ marginTop: "32px" }}>
-//             <button onClick={handleAddItem} className="add-items-button">Add more items</button>
-//           </div>
-//         </div>
-
-//         <div className="procurements-section vendor-information">
-//           <h1 className="section-title">Vendor Information<span className='optional'>(optional)</span></h1>
-//           <div className="field-group">
-//             <div className="field-item">
-//               <label className="field-label">Name</label>
-//               <input type="text" className="field-input" />
-//             </div>
-//             <div className="field-item" style={{ marginLeft: "20px" }}>
-//               <label className="field-label">Address</label>
-//               <input type="text" className="field-input" />
-//             </div>
-//             <div className="field-item" style={{ marginLeft: "20px" }}>
-//               <label className="field-label">Phone Number</label>
-//               <input type="text" className="field-input" />
-//             </div>
-//           </div>
-
-//           <div className="field-group">
-//             <div className="field-item">
-//               <label className="field-label">Contact Person</label>
-//               <input type="text" className="field-input" />
-//             </div>
-//             <div className="field-item" style={{ marginLeft: "20px" }}>
-//               <label className="field-label">Expected Delivery Date</label>
-//               <input type="date" className="field-input" />
-//             </div>
-//           </div>
-//         </div>
-
-//         <div className="submit-section">
-//           <button className="submit-button">Submit</button>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Procurements;
 import React, { useState } from 'react';
 import { useForm, useFieldArray, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -187,7 +5,6 @@ import * as yup from 'yup';
 import axios from 'axios';
 import '../Pages/Pages.css'; 
 import { Link } from 'react-router-dom';
-
 
 const schema = yup.object().shape({
   RequisitionNo: yup.string().required('Requisition Number is required'),
@@ -198,6 +15,7 @@ const schema = yup.object().shape({
     Department: yup.string().required('Department is required'),
     ExpensesType: yup.string().required('Expense Type is required'),
     ReasonForPurchase: yup.string().required('Reason for Purchase is required'),
+    RequestType: yup.string().required('Request Type is required'), // Add validation for Request Type
   }),
   SupplierVendorInformation: yup.object().shape({
     Name: yup.string().optional(),
@@ -216,7 +34,7 @@ const schema = yup.object().shape({
   ).required('Must have at least one item')
 });
 
-function Procurements({userDetails}) {
+function Procurements({ userDetails }) {
   const { register, control, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
@@ -228,6 +46,7 @@ function Procurements({userDetails}) {
         Department: '',
         ExpensesType: '',
         ReasonForPurchase: '',
+        RequestType: '', // Add default value for Request Type
       },
       SupplierVendorInformation: {
         Name: '',
@@ -246,7 +65,7 @@ function Procurements({userDetails}) {
   });
 
   const onSubmit = async (data) => {
-    console.log(data)
+    console.log(data);
     try {
       const response = await axios.post('/api/requisitions', data, {
         headers: { 'Content-Type': 'application/json' }
@@ -256,9 +75,10 @@ function Procurements({userDetails}) {
       console.error('Error submitting form:', error);
     }
   };
-  if(!userDetails){
-    return<h1>Please login</h1>
-  }
+
+  // if (!userDetails) {
+  //   return <h1>Please login</h1>;
+  // }
 
   return (
     <div>
@@ -321,16 +141,29 @@ function Procurements({userDetails}) {
             <div className="field-group">
               <div className="field-item">
                 <label className="field-label">Expense Type</label>
-                <input type="text" className="field-input" {...register('RequestorInformation.ExpensesType')} />
+                <select className="field-input" {...register('RequestorInformation.ExpensesType')}>
+                  <option value="">Select Expense Type</option>
+                  <option value="Repair and Maintenance">Repair and Maintenance</option>
+                  <option value="Furniture and Fixtures">Furniture and Fixtures</option>
+                  <option value="IT Accessories">IT Accessories</option>
+                  <option value="Electrical Components">Electrical Components</option>
+                  <option value="Construction">Construction</option>
+                  <option value="Office Equipments">Office Equipments</option>
+                  <option value="Branding and Marketing">Branding and Marketing</option>
+                  <option value="Stationery Items">Stationery Items</option>
+                  <option value="Others">Others</option>
+                </select>
                 <p>{errors.RequestorInformation?.ExpensesType?.message}</p>
               </div>
               <div className="field-item" style={{ marginLeft: "20px" }}>
                 <label className="field-label">Request Type</label>
-                <input type="text" className="field-input" {...register('RequestorInformation.ExpensesType')} />
-                <p>{errors.RequestorInformation?.ExpensesType?.message}</p>
+                <select className="field-input" {...register('RequestorInformation.RequestType')}>
+                  <option value="">Select Request Type</option>
+                  <option value="Service Type">Service Type</option>
+                  <option value="Product Type">Product Type</option>
+                </select>
+                <p>{errors.RequestorInformation?.RequestType?.message}</p>
               </div>
-
-              
             </div>
             <div className="field-group">
             <div className="field-item">
