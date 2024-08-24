@@ -9,7 +9,7 @@ const Profile = () => {
     // Need to Rplace the token with the actual token from the authentication
     const token = '<token>';
 
-    axios.get('/profile', {
+    axios.get('10.11.0.141/api/profile', {
       headers: {
         Authorization: `Bearer ${token}`,
       },

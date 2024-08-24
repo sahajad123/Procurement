@@ -15,7 +15,7 @@ const schema = yup.object().shape({
     Department: yup.string().required('Department is required'),
     ExpensesType: yup.string().required('Expense Type is required'),
     ReasonForPurchase: yup.string().required('Reason for Purchase is required'),
-    RequestType: yup.string().required('Request Type is required'), // Add validation for Request Type
+    RequestType: yup.string().required('Request Type is required'), 
   }),
   SupplierVendorInformation: yup.object().shape({
     Name: yup.string().optional(),
@@ -46,7 +46,7 @@ function Procurements({ userDetails }) {
         Department: '',
         ExpensesType: '',
         ReasonForPurchase: '',
-        RequestType: '', // Add default value for Request Type
+        RequestType: '',
       },
       SupplierVendorInformation: {
         Name: '',
@@ -67,7 +67,7 @@ function Procurements({ userDetails }) {
   const onSubmit = async (data) => {
     console.log(data);
     try {
-      const response = await axios.post('/api/requisitions', data, {
+      const response = await axios.post('10.11.0.141/api/requisitions', data, {
         headers: { 'Content-Type': 'application/json' }
       });
       console.log('Successfully submitted:', response.data);

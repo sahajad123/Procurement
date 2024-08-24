@@ -27,8 +27,8 @@ const Main = () => {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const token = localStorage.getItem('token'); // Retrieve token from localStorage or wherever you store it
-        const response = await axios.get('/profile', {
+        const token = localStorage.getItem('token');
+        const response = await axios.get('10.11.0.141/api/profile', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

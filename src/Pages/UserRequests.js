@@ -79,8 +79,8 @@ const UserRequests = ({ userDetails }) => {
   useEffect(() => {
     const fetchRequisitions = async () => {
       try {
-        const token = localStorage.getItem('token'); // Retrieve token from localStorage or wherever you store it
-        let url = '/api/requisitions';
+        const token = localStorage.getItem('token'); 
+        let url = '10.11.0.141/api/requisitions';
 
         if (userDetails.Designation !== 'Procurement officer' && userDetails.Designation !== 'CEO') {
           url = `/api/requisitions/user/${userDetails._id}`;

@@ -8,9 +8,9 @@ const Navbar = ({ selectedItem, userDetails}) => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-  // if(!userDetails){
-  //   return<h1>Please log in</h1>
-  // }
+  if(!userDetails){
+    return<h1>Please log in</h1>
+  }
 
   return (
     <div className="navbar">
@@ -30,8 +30,8 @@ const Navbar = ({ selectedItem, userDetails}) => {
       <div className="navbar-content">
         <div className="user-info" onClick={toggleMenu}>
           <img src="https://via.placeholder.com/40" alt="User" className="user-image" />
-          {/* <span className="user-name">{userDetails.username}</span> */}
-          {/* Add loggedin username */}
+          <span className="user-name">{userDetails.username}</span>
+          
           <span className="user-name">username</span>
           <div className={`profile-menu ${menuOpen ? 'open' : ''}`}>
             <ul>

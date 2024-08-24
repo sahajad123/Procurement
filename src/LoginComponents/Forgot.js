@@ -25,7 +25,7 @@ const Forgot = () => {
         const user = usersData.find(user => user.email === data.email);
         if (user) {
             alert("Password recovery email sent!");
-            Navigate('/ResetPassword',{ state: { email: data.email } })
+            Navigate('10.11.0.141/api/ResetPassword',{ state: { email: data.email } })
         } else {
             alert("Email not found.");
         }
