@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import config from "../utils/config";
+
+const { baseUrl } = config;
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -7,32 +10,33 @@ const Profile = () => {
 
   useEffect(() => {
     // Need to Rplace the token with the actual token from the authentication
-    const token = '<token>';
+    const token = localStorage.getItem("token");
 
-    axios.get('/profile', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-    .then(response => {
-      setUser(response.data);
-    })
-    .catch(error => {
-      if (error.response) {
-        // Request made and server responded
-        if (error.response.status === 401) {
-          setError('Unauthorized: No token provided or token is invalid');
+    axios
+      .get(`${baseUrl}users/profile`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        setUser(response.data);
+      })
+      .catch((error) => {
+        if (error.response) {
+          // Request made and server responded
+          if (error.response.status === 401) {
+            setError("Unauthorized: No token provided or token is invalid");
+          } else {
+            setError("Server error");
+          }
+        } else if (error.request) {
+          // The request was made but no response was received
+          setError("Network error");
         } else {
-          setError('Server error');
+          // Something happened in setting up the request
+          setError("Error: " + error.message);
         }
-      } else if (error.request) {
-        // The request was made but no response was received
-        setError('Network error');
-      } else {
-        // Something happened in setting up the request
-        setError('Error: ' + error.message);
-      }
-    });
+      });
   }, []);
 
   return (
