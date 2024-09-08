@@ -2,6 +2,7 @@
   "name": "heraldproject",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://sahajad123.github.io/Procurement",
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
     "@testing-library/jest-dom": "^5.17.0",
